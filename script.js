@@ -10,9 +10,21 @@ login = {
     },
     onclick:()=>{
 
-        if(username.value=="admin" && password.value=="123"){
+        if(username.value.length > 0 && !username.validity.typeMismatch && password.value=="123"){
             login.message.classList.add("success");
-            login.message.innerHTML=username.value+" عزیز خوش آمدید";
+            login.message.innerHTML=" کاربر عزیز خوش آمدید!";
+        }
+        else if(username.value.length == 0) {
+            login.message.classList.add("error");
+            login.message.innerHTML="لطفا نام کاربری را وارد کنید!";
+        }       
+        else if(password.value.length == 0) {
+            login.message.classList.add("error");
+            login.message.innerHTML="لطفا رمز عبور را وارد کنید!";
+        }
+        else if(username.validity.typeMismatch) {
+            login.message.classList.add("error");
+            login.message.innerHTML="نام کاربری باید در قالب ایمیل باشد!";
         }
         else {
         login.message.classList.add("error");
