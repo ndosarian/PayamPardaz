@@ -1,62 +1,62 @@
 <html>
 
-    <head>
-        <title>LoginForm Design</title>
-        <meta charset="UTF-8">
-        <meta name="description" content="Form Design">
-        <meta name="keywords" content="HTML, CSS, JavaScript">
-        <meta name="author" content="Nafise Dosarian">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>LoginForm Design</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Form Design">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Nafise Dosarian">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="style.css">
-    </head>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    <body>
-        <!--Container -->
-        <div class="container">
-            <!--Header-->
-            <div class="header">
-                <h1 id="title">
-                    ورود به صفحه کاربری
-                </h1>
-            </div>
-            <!--Form-->
-            <form class="form" action="#" id="survey-form">
-                <div class="formgroup">
-                    <div class="message"></div>
-                </div>
-
-                <div class="formgroup">
-                    <input type="email" id="username" class="icon" autofocus required placeholder="نام کاربری" tabindex="1"
-                        onfocus="login.hidemessage()">
-                </div>
-                <div class="formgroup">
-                    <input type="password" id="password" class="icon" required placeholder="رمز عبور" tabindex="2"
-                        onfocus="login.hidemessage()">
-                    <a href="#" id="showpassword"></a>
-                </div>
-                <div class="formgroup">
-                    <input type="submit" value="ورود" id="submit" tabindex="3" onclick="login.onclick()">
-                </div>
-                <div class="formgroup">
-                    <label class="group" id="remember-me">
-                        <input type="checkbox" name="remember-me" checked />
-                        <span class="checkmark"></span>
-                        مرا بخاطر بسپار
-                    </label>
-                    <div class="group" id="forget-password"><a href="#"> رمز عبور را فراموش کرده ام؟</a></div>
-                </div>
-
-            </form>
+<body>
+    <!--Container -->
+    <div class="container">
+        <!--Header-->
+        <div class="header">
+            <h1 id="title">
+                ورود به صفحه کاربری
+            </h1>
         </div>
+        <!--Form-->
+        <form class="form" action="#" id="survey-form">
+            <div class="formgroup">
+                <div class="message"></div>
+            </div>
+
+            <div class="formgroup">
+                <input type="email" id="username" class="icon" autofocus required placeholder="نام کاربری" tabindex="1"
+                    onfocus="login.hidemessage()">
+            </div>
+            <div class="formgroup">
+                <input type="password" id="password" class="icon" required placeholder="گذرواژه" tabindex="2"
+                    onfocus="login.hidemessage()">
+                <a href="#" id="showpassword"></a>
+            </div>
+            <div class="formgroup">
+                <input type="submit" value="ورود" id="submit" tabindex="3" onclick="login.onclick()">
+            </div>
+            <div class="formgroup">
+                <label class="group" id="remember-me">
+                    <input type="checkbox" name="remember-me" checked />
+                    <span class="checkmark"></span>
+                    مرا بخاطر بسپار
+                </label>
+                <div class="group" id="forget-password"><a href="#"> گذرواژه را فراموش کرده‌ام؟</a></div>
+            </div>
+
+        </form>
+    </div>
 
 
-        <script type="text/JavaScript" src="script.js"></script>
-        <script>
-            (function () {
-                login.init()
-            })();
-        </script>
-    </body>
+    <script type="text/JavaScript" src="script.js"></script>
+    <script>
+        (function () {
+            login.init()
+        })();
+    </script>
+</body>
 
 </html>
