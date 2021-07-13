@@ -4,17 +4,24 @@ login = {
     password:null,
     message:null,
     showpassword:null,
+    loading:null,
     init:()=> {
          login.username = document.getElementById("username");
          login.password = document.getElementById("password");
          login.message = document.getElementsByClassName("message")[0];
          login.showpassword = document.getElementById("showpassword");
+         login.loading = document.getElementById("loading");
     },
     onclick:()=>{
 
         if(username.value.length > 0 && !username.validity.typeMismatch && password.value=="123"){
             login.message.classList.add("success");
             login.message.innerHTML=" کاربر عزیز خوش آمدید!";
+            login.loading.classList.remove("d-none");
+            setTimeout(() => {
+                window.location="events.html";
+            }, 1000);
+
         }
         else if(username.value.length == 0) {
             login.message.classList.add("error");
