@@ -3,10 +3,12 @@ login = {
     username:null,
     password:null,
     message:null,
+    showpassword:null,
     init:()=> {
          login.username = document.getElementById("username");
          login.password = document.getElementById("password");
          login.message = document.getElementsByClassName("message")[0];
+         login.showpassword = document.getElementById("showpassword");
     },
     onclick:()=>{
 
@@ -42,5 +44,15 @@ login = {
     hidemessage:()=>{
         setTimeout(login.removemessage,500);
         login.message.classList.add("hidden");
+    },
+    showhidepass:()=>{
+        if (login.password.getAttribute("type")=="text")
+        {
+            login.password.setAttribute("type","password");
+        }
+        else {
+            login.password.setAttribute("type","text")
+        }
+        event.preventDefault();
     }
 };
