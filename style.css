@@ -470,7 +470,7 @@ input:checked~.checkmark::after {
 }
 .botnet-name {
     color: black;
-    font-size:22px;
+    font-size:16px;
     font-weight: bold;
 }
 
@@ -496,11 +496,11 @@ input:checked~.checkmark::after {
 .siem-btn {
     top:7%;
     right:2%;
-    width:20%;
+    width:35%;
 }
 
 .time-show {
-    width:50%;
+    width:35%;
     right:2%;
     top:54px;
     box-shadow: 0 0 3px 3px var(--main-color), 0 0 0 2px var(--main-color);
@@ -530,10 +530,14 @@ input:checked~.checkmark::after {
     top: 80%;
     left:12%;
 }
+.p1,.p2 {
+    display: inline-block;
+}
 .port {
     border-left: solid 1px black;
     padding-left: 10px;
     padding-right: 10px;
+    display: inline-block;
 }
 
 /*media query*/
