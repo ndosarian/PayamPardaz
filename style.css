@@ -5,10 +5,10 @@
     --error-color: 212, 38, 67;
     --main-font: Vazir;
     --color-darkblue: rgba(27, 27, 50, 0.8);
-    --yellow: #feb60a;
-	--red: #ff0062;
-	--blue: #00dbf9;
-	--violet: #da00f7;
+    --yellow: #92e6a7;
+    --purple:#4ad66d;
+    --medium-green:#208b3a;
+    --light-green:#10451d;
 }
 
 /*end variables*/
@@ -381,6 +381,7 @@ input:checked~.checkmark::after {
     display: flex;
     flex-direction: row;
     margin-top:10px;
+    justify-content: center;
 }
 .main {
     width:32%;
@@ -566,6 +567,7 @@ input:checked~.checkmark::after {
     left: 0;
     bottom:0;
     right: 0;
+    z-index: 200;
     
 }
 .con > div {
@@ -580,18 +582,18 @@ input:checked~.checkmark::after {
 	background-color: var(--yellow);
 }
 
-.red {
-	background-color: var(--red);
+.purple {
+	background-color: var(--purple);
 	animation-delay: 0.1s;
 }
 
-.blue {
-	background-color: var(--blue);
+.medium-green {
+	background-color: var(--medium-green);
 	animation-delay: 0.2s;
 }
 
-.violet {
-	background-color: var(--violet);
+.light-green {
+	background-color: var(--light-green);
 	animation-delay: 0.3s;
 }
 

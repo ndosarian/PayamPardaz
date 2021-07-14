@@ -23,7 +23,7 @@
         <div id="searchbox">
             <input type="text" name="search" placeholder="جستجو..."  id="search"> 
         </div>
-        <div id="logout">
+        <div id="logout" onclick="login.logout()">
             <p id="logout-txt">خروج</p>
             <img src="images/exit.png" alt="profile image" id="logout-img">
         </div>
@@ -245,8 +245,20 @@
     
     <!--end of Central Box-->
 
-
-
+    <div id="loading" class="con">
+        <div class="yellow"></div>
+        <div class="medium-green"></div>
+        <div class="purple"></div>
+        <div class="light-green"></div>
+    </div>
+    
+    <script type="text/JavaScript" src="login.js"></script>
+    <script type="text/JavaScript" src="events.js"></script>
+    <script>
+        (function () {
+            events.init()
+        })();
+    </script>
 
 </body>
 </html>

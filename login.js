@@ -11,9 +11,42 @@ login = {
          login.message = document.getElementsByClassName("message")[0];
          login.showpassword = document.getElementById("showpassword");
          login.loading = document.getElementById("loading");
-    },
-    onclick:()=>{
+         setTimeout(() => {
+            login.loading.classList.add("d-none");
+         
+        }, 300);
+        if(login.isloggedin())
+        {
+            setTimeout(() => {
+                window.location="events.html";
+            }, 300);
+        }
 
+    },
+    getuser:()=>{
+        let c = document.cookie.split("=")
+        if (c.length <2)
+        {
+            return "";
+        } else if( c[0]=="user" && c[1].indexOf("@")!=-1)
+        {
+            return c[1];
+        } 
+            return "";
+    },
+    logout:()=>{
+        document.cookie="user=;"
+        login.loading.classList.remove("d-none");
+        setTimeout(() => {
+            window.location="index.html";
+        }, 1000);
+    },
+    isloggedin:()=>{
+        if(login.getuser()=="")
+            return  false;
+        return true;
+    },
+    onclick:()=> {
         if(username.value.length > 0 && !username.validity.typeMismatch && password.value=="123"){
             login.message.classList.add("success");
             login.message.innerHTML=" کاربر عزیز خوش آمدید!";
@@ -22,6 +55,7 @@ login = {
                 window.location="events.html";
             }, 1000);
 
+            document.cookie="user="+username.value+";";
         }
         else if(username.value.length == 0) {
             login.message.classList.add("error");
