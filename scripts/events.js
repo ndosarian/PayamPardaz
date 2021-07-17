@@ -27,7 +27,7 @@ events = {
         while (events.container.firstChild) {
             events.container.removeChild(events.container.lastChild);
         }
-        var filterValue = document.getElementById("search").value;
+        
         data.forEach(element => {
             let newEvent = events.mainclonable.cloneNode(true);
             newEvent.classList.remove("d-none");
@@ -39,8 +39,8 @@ events = {
             events.setFeild(newEvent, "p2", element.destinations[0].ips[0].ip)
             events.setFeild(newEvent, "port", element.sources[0].services[0].port)
 
-            if (element.incident_type.toLowerCase().includes(filterValue))
-                events.container.appendChild(newEvent);
+            
+            events.container.appendChild(newEvent);
         });
     },
     loadEvents: () => {
@@ -58,18 +58,26 @@ events = {
     setUsername: () => {
         let user = login.getuser().split("@")
         events.welcome.innerHTML = user[0]
+    },
+    fileterEvents : () => {
+        var filterValue = document.getElementById("search").value;
+        let l = []
+        events.res.results.forEach(element => {
+            if (element.incident_type.toLowerCase().includes(filterValue.toLowerCase()))
+            {
+                l.push(element)
+            } else if (element.sources[0].ips[0].ip.toLowerCase().includes(filterValue.toLowerCase()))
+            {
+                l.push(element)
+            } else if (element.destinations[0].ips[0].ip.toLowerCase().includes(filterValue.toLowerCase()))
+            {
+                l.push(element)
+            } else if (element.sources[0].services[0].port == parseInt(filterValue))
+            {
+                l.push(element)
+            }
+        });
+        
+        events.showEvents(l);
     }
-}
-
-function fileterEvents() {
-    const xhttp = new XMLHttpRequest();
-    xhttp.onload = function () {
-        events.res = JSON.parse(this.responseText)
-        events.showEvents(events.res.results);
-        setTimeout(() => {
-            login.loading.classList.add("d-none");
-        }, 300);
-    }
-    xhttp.open("GET", "incidents", true);
-    xhttp.send();
 }
