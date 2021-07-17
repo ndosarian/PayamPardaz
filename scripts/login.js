@@ -42,7 +42,7 @@ login = {
         return true;
     },
     onclick: () => {
-        if (username.value.length > 0 && !username.validity.typeMismatch && password.value == "123") {
+        if (username.value.length > 0 && !username.validity.typeMismatch && login.validateEmail(username.value) && password.value == "123") {
             login.message.classList.add("success");
             login.message.innerHTML = " کاربر عزیز خوش آمدید!";
             login.loading.classList.remove("d-none");
@@ -50,24 +50,31 @@ login = {
                 window.location = "events.html";
             }, 1000);
 
-            document.cookie = `user=${username.value}`;
+        document.cookie = `user=${username.value}`;
         } else if (username.value.length == 0) {
             login.message.classList.add("error");
             login.message.innerHTML = "لطفا نام کاربری را وارد کنید!";
         } else if (password.value.length == 0) {
             login.message.classList.add("error");
             login.message.innerHTML = "لطفا رمز عبور را وارد کنید!";
-        } else if (username.validity.typeMismatch) {
+        } else if (username.validity.typeMismatch || !login.validateEmail(username.value)) 
+        {
             login.message.classList.add("error");
             login.message.innerHTML = "نام کاربری باید در قالب ایمیل باشد!";
-        } else {
+        } else 
+        {
             login.message.classList.add("error");
             login.message.innerHTML = "نام کاربری یا رمز عبور اشتباه است!";
 
         }
         event.preventDefault();
     },
-    removemessage: () => {
+
+    validateEmail:(username) => {
+        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(username);
+    },
+    removemessage : () => {
         login.message.classList.remove("hidden");
         login.message.classList.remove("success");
         login.message.classList.remove("error");
