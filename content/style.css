@@ -19,28 +19,28 @@
     font-family: Vazir;
     font-weight: normal;
     font-style: normal;
-    src: url('font/Vazir-FD.woff2') format('woff'), url('font/Vazir-FD.woff') format('woff');
+    src: url('../fonts/Vazir-FD.woff2') format('woff'), url('../fonts/Vazir-FD.woff') format('woff');
 }
 
 @font-face {
     font-family: Vazir;
     font-weight: bold;
     font-style: normal;
-    src: url('font/Vazir-Bold-FD.woff2') format('woff'), url('font/Vazir-Bold-FD.woff') format('woff');
+    src: url('../fonts/Vazir-Bold-FD.woff2') format('woff'), url('../fonts/Vazir-Bold-FD.woff') format('woff');
 }
 
 @font-face {
     font-family: Vazir;
     font-weight: lighter;
     font-style: normal;
-    src: url('font/Vazir-Light-FD.woff2') format('woff'), url('font/Vazir-Light-FD.woff') format('woff');
+    src: url('../fonts/Vazir-Light-FD.woff2') format('woff'), url('../fonts/Vazir-Light-FD.woff') format('woff');
 }
 
 @font-face {
     font-family: Vazir;
     font-weight: medium;
     font-style: normal;
-    src: url('font/Vazir-Medium-FD.woff2') format('woff'), url('font/Vazir-Medium-FD.woff') format('woff');
+    src: url('../fonts/Vazir-Medium-FD.woff2') format('woff'), url('../fonts/Vazir-Medium-FD.woff') format('woff');
 }
 
 /*end fonts*/

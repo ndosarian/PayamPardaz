@@ -8,7 +8,7 @@
         <meta name="author" content="Nafise Dosarian">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="content/style.css">
     </head>
 
 <body id="event-body" dir="rtl">
@@ -18,14 +18,15 @@
         <div id="profile">
             <p id="profile-txt">خوش آمدید!</p>
 
-            <img src="images/user.png" alt="profile image" id="profile-img">
+            <img src="content/images/user.png" alt="profile image" id="profile-img">
         </div>
         <div id="searchbox">
-            <input type="text" name="search" placeholder="جستجو..."  id="search"> 
+            <input type="text" name="search" placeholder="جستجو..."  id="search"
+                onkeyup="fileterEvents();"> 
         </div>
         <div id="logout" onclick="login.logout()">
             <p id="logout-txt">خروج</p>
-            <img src="images/exit.png" alt="profile image" id="logout-img">
+            <img src="content/images/exit.png" alt="profile image" id="logout-img">
         </div>
     </header>
     <!--end of Header-->
@@ -34,7 +35,7 @@
     <div class="container">
         <div class="main d-none">
             <div class="malware-logo">
-                <img src="images/malware.svg" alt="bot net logo" class="botnet-logo">
+                <img src="content/images/malware.svg" alt="bot net logo" class="botnet-logo">
             </div>
             <div class="molware-name">
                 <p class="botnet-name">Botnet</p>
@@ -77,9 +78,9 @@
         <div class="light-green"></div>
     </div>
     
-    <script type="text/JavaScript" src="login.js"></script>
-    <script type="text/JavaScript" src="moment.min.js"></script>
-    <script type="text/JavaScript" src="events.js"></script>
+    <script type="text/JavaScript" src="scripts/login.js"></script>
+    <script type="text/JavaScript" src="scripts/moment.min.js"></script>
+    <script type="text/JavaScript" src="scripts/events.js"></script>
     <script>
         (function () {
             events.init()
