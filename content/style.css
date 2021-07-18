@@ -374,7 +374,7 @@ input:checked~.checkmark::after {
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    background-color:rgba(27, 27, 50, 0.8);
+    background-color:#f5f5f5;
     margin-top:10px ;
 }
 .header {
@@ -384,14 +384,14 @@ input:checked~.checkmark::after {
     justify-content: center;
 }
 .main {
-    width:32%;
-    height:190px;
+    width:24%;
+    height:175px;
     background-color: white;
-    box-shadow: 0 0 3px 3px gray, 0 0 0 2px gray;
+    border: 3px solid #e7e7e7;
     margin: auto;
     margin-top:1%;
     margin-bottom:1%;
-    border-radius:12px;
+    border-radius:2px;
     position: relative;
 }
 .main > div {
@@ -418,7 +418,7 @@ input:checked~.checkmark::after {
 }
 #searchbox {
     /*! margin-left: 30px; */
-    width: 211%;
+    width: 200%;
 }
 #search {
     width: 130px;
@@ -431,7 +431,7 @@ input:checked~.checkmark::after {
 }
 
 #search:focus {
-    width:calc(100% - 30px);
+    width:calc(100% - 120px);
     border-color:none;
 }  
 #logout {
@@ -459,99 +459,149 @@ input:checked~.checkmark::after {
 }
 /*box started*/
 .malware-logo {
-    width:70px;
-    height: 70px;
-    top:3%;
-    left:0.6%;
+    top:12%;
+    left:6%;
+}
+.botnet-logo {
+    width:35px;
+    height:35px;
 }
 .molware-name {
-    left:75px;
-    top:4%; 
+    width:35%;
+    left:60px;
+    top:10%; 
+}
+.molware-name > p {
+    white-space: nowrap;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: ltr
 }
 .botnet-name {
     color: black;
-    font-size:16px;
+    font-size:13px;
     font-weight: bold;
 }
 
 .malware-id {
-    left:73px;
-    top: 54px;
-    color: black;
-    font-size: 13px;
+    width: calc(50% - 58px);
+    font-size: 12px;
+    color: #6c6c6c;
+    top:50px;
+    left:58px;
 }
-
+.malware-id > p {
+    white-space: nowrap;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: ltr;
+}
 .btn {
     height:9%;
     font-size: 0.8em;
-    box-shadow: 0 0 3px 3px gray, 0 0 0 2px gray;
     font-size: 12px;
     outline: none;
     border: none;
     border-radius: 2px;
-    color: black;
+    color: #6c6c6c;
+    border: 3px solid #e7e7e7;
     text-align: center;
-    padding-top:1px;
+    background-color:#f5f5f5;
+    padding:2px 5px;
 }
 .siem-btn {
-    top:7%;
-    right:2%;
-    width:35%;
+    top:9%;
+    color: black;
+    right:5%;
+    width:15%;
+    white-space: nowrap;  
+    overflow: hidden;
+    text-overflow: ellipsis;   /*fit text inside container*/
 }
 
 .time-show {
-    width:35%;
-    right:2%;
-    top:54px;
-    box-shadow: 0 0 3px 3px var(--main-color), 0 0 0 2px var(--main-color);
-    background-color:rgba(var(--main-color-rgba),0.3);
+    width: calc(50% - 58px); 
+    right:5%;
+    top:26%;
+    color:#bdefa7;
+    border:2px solid #bdefa7;
+    background-color:#f0fff5;
     font-size: 13px;
+    white-space: nowrap;  
+    overflow: hidden;
+    text-overflow: ellipsis;   /*fit text inside container*/
+
 }
 .s,.d {
     left:5%;
-    width:5%;
+    color: #6c6c6c;
+
 }
 .s {
-    top:60%;
+    top:53%;
 }
 .d {
-    top:80%;
+    top:77%;
+}
+#connection {
+    width: 30px;
+    height:19px;
+    top:67%;
+    left:28.5px;
+    border-left: 1px solid #e7e7e7;
 }
 .ip1  , .ip2 {
-    width:62%;
+    color: black;
+    width: fit-content; 
     text-align: left;
     padding-left:10px;
+    margin-left: 10px;
+    padding-right: 30px;
 }
 .ip1 {
-    top: 60%;
-    left:12%;
+    top:53%;
+    left:14%;
+    position:absolute;
 }
 .ip2 {
-    top: 80%;
-    left:12%;
+    top:77%;
+    left:14%;
 }
 .p1,.p2 {
     display: inline-block;
+    padding-right: 10px;
+    height: 10px;
 }
 .port {
-    border-left: solid 1px black;
+    height: 13px;
+    position: relative;
+    top:1px;
+    bottom: 1px;
+    border-left:1px solid #e7e7e7;
     padding-left: 10px;
-    padding-right: 10px;
     display: inline-block;
+    color: #6c6c6c;
+
 }
 
 /*media query*/
-@media only screen and (max-width:1030px) {
+@media only screen and (max-width:1000px) {
     .main {
-        width:48%;
+        width:32% !important;
     }
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width:760px) {
     .main {
-        width: 95%;
+        width: 48% !important;
     }
 }
+@media only screen and (max-width:450px) {
+    .main {
+        width:98% !important;
+    }
+}
+
 /*end of events style*/
 
 

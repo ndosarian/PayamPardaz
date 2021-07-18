@@ -20,6 +20,9 @@ events = {
             events.loadEvents()
         }
     },
+    setProp: (elem,prop,value) =>{
+        elem.setAttribute(prop,value)
+    },
     setFeild: (elem, fild, value) => {
         elem.getElementsByClassName(fild)[0].innerHTML = value
     },
@@ -32,14 +35,30 @@ events = {
             let newEvent = events.mainclonable.cloneNode(true);
             newEvent.classList.remove("d-none");
             events.setFeild(newEvent, "botnet-name", element.incident_type)
-            events.setFeild(newEvent, "botnet-id", "..." + "#" + element.incident_id.substring(0, 7))
+            events.setFeild(newEvent, "botnet-id", "#" + element.incident_id)
             events.setFeild(newEvent, "siem-btn", element.siem.name)
             events.setFeild(newEvent, "time-show", moment(element.reported_time).fromNow())
             events.setFeild(newEvent, "p1", element.sources[0].ips[0].ip)
             events.setFeild(newEvent, "p2", element.destinations[0].ips[0].ip)
             events.setFeild(newEvent, "port", element.sources[0].services[0].port)
 
-            
+            switch(element.incident_type){
+                case "Waste Of Resource" :
+                   events.setProp(newEvent.getElementsByClassName("botnet-logo")[0],"src","content/images/malware.png")
+                    break;
+                case "Worm":
+                    events.setProp(newEvent.getElementsByClassName("botnet-logo")[0],"src","content/images/malware2.png")                    
+                    break;
+                case "Gain Access":
+                    events.setProp(newEvent.getElementsByClassName("botnet-logo")[0],"src","content/images/malware.png")                    
+                    break;
+                case "Reconnaissance":
+                    events.setProp(newEvent.getElementsByClassName("botnet-logo")[0],"src","content/images/malware2.png")  
+                    break;
+
+            }
+
+
             events.container.appendChild(newEvent);
         });
     },
