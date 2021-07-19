@@ -3,11 +3,13 @@ events = {
     container: null,
     mainclonable: null,
     res: null,
+    loaderrorMessage:null,
     init: () => {
         events.welcome = document.getElementById("profile-txt")
         login.loading = document.getElementById("loading");
         events.container = document.getElementsByClassName("container")[0];
-        events.mainclonable = document.getElementsByClassName('main')[0];
+        events.mainclonable = document.getElementById('clonnable');
+        events.loaderrorMessage = document.getElementById('loadError');
         events.checklogin()
     },
     checklogin: () => {
@@ -62,14 +64,29 @@ events = {
             events.container.appendChild(newEvent);
         });
     },
+    loadError : ()=>{
+        events.loaderrorMessage.innerHTML = "ارتباط با سرور برقرار نیست.";
+        events.loaderrorMessage.classList.remove("d-none")
+        setTimeout(() => {
+            login.loading.classList.add("d-none");
+        }, 300);
+    },
     loadEvents: () => {
         const xhttp = new XMLHttpRequest();
-        xhttp.onload = function () {
-            events.res = JSON.parse(this.responseText)
-            events.showEvents(events.res.results);
-            setTimeout(() => {
-                login.loading.classList.add("d-none");
-            }, 300);
+        xhttp.onload = function (){
+            if(this.responseText!=undefined)
+            {
+                events.res = JSON.parse(this.responseText)
+                events.showEvents(events.res.results);
+                setTimeout(() => {
+                    login.loading.classList.add("d-none");
+                }, 300);
+            } else {
+                events.loadError()
+            }
+        };
+        xhttp.onerror = () => {
+            events.loadError()
         }
         xhttp.open("GET", "incidents", true);
         xhttp.send();
